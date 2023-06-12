@@ -1,4 +1,4 @@
-import Modelo from "./model/personas.js"
+import Modelo from "./model/personasDB.js"
 
 class Servicio {
 
@@ -6,5 +6,4 @@ class Servicio {
         this.model = new Modelo();
     }
 
-    
 }
