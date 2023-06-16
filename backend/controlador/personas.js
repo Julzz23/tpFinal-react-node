@@ -36,6 +36,5 @@ class Controlador {
         const { id } = req.params;
         const persona = await this.servicio.eliminarPersona(id);
         res.json(persona);
-
      }
 }

@@ -4,12 +4,12 @@ import CnxMongoDB from "../DBMongo.js";
 class ModelPersonaDB {
   constructor() {}
 
-  getPersonas = async (id) => {
+  getPersonas = async (dni) => {
     if (!CnxMongoDB.connectOk) return id ? {} : [];
     if (id) {
       const persona = await CnxMongoDB.db
         .collection("personas")
-        .findOne({ _id: new ObjectId(id) });
+        .findOne({ _dni: new ObjectId(dni) });
       return persona;
     } else {
       const persomas = await CnxMongoDB.db
@@ -26,17 +26,17 @@ class ModelPersonaDB {
     return persona;
   };
 
-  actualizarPersona = async (persona) => {
+  actualizarPersona = async (dni,persona) => {
     if (!CnxMongoDB.connectOk) return {};
 
     //console.log(id, producto)
 
     await CnxMongoDB.db.collection("personas").updateOne(
-      { _id: new ObjectId(id) }, // query
+      { _dni: new ObjectId(dni) }, // query
       { $set: persona }
     );
 
-    const personaActualizada = await this.getPersonas(id);
+    const personaActualizada = await this.getPersonas(dni);
     return personaActualizada;
   };
 

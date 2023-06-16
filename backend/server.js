@@ -12,8 +12,8 @@ app.use(express.urlencoded({ extended: true }))
 //          API REST Ful
 // ------------------------------------------
 
-app.use('api/productos', new RouterProductos().start())
-app.use('api/personas', new RouterPersonas().start())
+app.use('/productos', new RouterProductos().start())
+app.use('/personas', new RouterPersonas().start())
 
 //-------------------------------------------
 //      Listen del servidor express
