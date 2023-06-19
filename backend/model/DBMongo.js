@@ -1,4 +1,3 @@
-//https://www.npmjs.com/package/mongodb
 
 import { MongoClient } from "mongodb";
 import config from '../config.js'

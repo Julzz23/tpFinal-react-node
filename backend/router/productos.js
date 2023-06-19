@@ -3,8 +3,6 @@ import Controlador from '../controlador/productos.js'
 
 class Router {
     constructor() {
-        let  sarasa = "";
-        //this.router = express.Router()
         this.controlador = new Controlador()
     }
 
@@ -12,7 +10,7 @@ class Router {
         this.router.get('/:id?', this.controlador.getProducto)
         this.router.post('/', this.controlador.setProducto)
         this.router.put('/:id', this.controlador.actualizarProducto)
-        this.router.delete('/:id', this.controlador.borrarProducto) 
+        this.router.delete('/:id', this.controlador.borrarProducto)
         return this.router
 
     }    

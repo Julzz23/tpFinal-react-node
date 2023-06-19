@@ -4,15 +4,15 @@ import CnxMongoDB from "../DBMongo.js";
 class ModelPersonaDB {
   constructor() {}
 
-  getPersonas = async (dni) => {
-    if (!CnxMongoDB.connectOk) return id ? {} : [];
-    if (id) {
+  getPersona = async (dni) => {
+    if (!CnxMongoDB.connectOk) return dni ? {} : [];
+    if (dni) {
       const persona = await CnxMongoDB.db
         .collection("personas")
         .findOne({ _dni: new ObjectId(dni) });
       return persona;
     } else {
-      const persomas = await CnxMongoDB.db
+      const personas = await CnxMongoDB.db
         .collection("personas")
         .find({})
         .toArray();
@@ -26,29 +26,27 @@ class ModelPersonaDB {
     return persona;
   };
 
-  actualizarPersona = async (dni,persona) => {
-    if (!CnxMongoDB.connectOk) return {};
+  actualizarPersona = async (dni, persona) => {
+    if (!CnxMongoDB.connectOk) return {}; //valida conexion
 
-    //console.log(id, producto)
-
-    await CnxMongoDB.db.collection("personas").updateOne(
-      { _dni: new ObjectId(dni) }, // query
-      { $set: persona }
-    );
+    //buscar persona por dni y modificar contenido
+    await CnxMongoDB.db
+      .collection("personas")
+      .updateOne({ _dni: new ObjectId(dni) }, { $set: persona });
 
     const personaActualizada = await this.getPersonas(dni);
     return personaActualizada;
   };
 
-  eliminarPersona = async (id) => {
+  eliminarPersona = async (dni) => {
     if (!CnxMongoDB.connectOk) return {};
 
     //console.log(id)
 
-    const personaEliminada = await this.getPersonas(id);
+    const personaEliminada = await this.getPersonas(dni);
     await CnxMongoDB.db
       .collection("personas")
-      .deleteOne({ _id: new ObjectId(id) });
+      .deleteOne({ _dni: new ObjectId(dni) });
 
     return personaEliminada;
   };

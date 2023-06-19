@@ -1,5 +1,5 @@
 import Modelo from "./model/personasDB.js"
-import { validar } from "../validaciones/productos.js" 
+import { validar } from "../validaciones/persona.js" 
 
 class Servicio {
 
@@ -10,12 +10,12 @@ class Servicio {
 
     setPersona = async (persona)=>{
        
-        const res = validar(persona)
-        if(res.result){
+        const validacion = validar(persona)
+        if(validacion.result){
             const persona = await this.model.setPersona(persona);
             return persona
         }else{
-            return res.result
+            return validacion.result
         }
            
     }
@@ -28,9 +28,20 @@ class Servicio {
     }
 
     actualizarPersona = async (dni,persona)=>{
+        const validacion = validar(persona)
+        if(validacion.result){
+            const personaActualizada = await this.model.actualizarPersona(dni,persona)
+            return personaActualizada
+        }else{
+            return validacion.result
+        }
 
-        const personaActualizada = await this.model.actualizarPersona(dni,persona)
-        return personaActualizada
+    }
+
+    eliminarPersona = async(dni) =>{
+
+        const personaEliminada = await this.model.eliminarPersona(dni)
+        return personaEliminada
 
     }
 }

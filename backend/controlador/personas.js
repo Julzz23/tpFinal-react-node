@@ -20,7 +20,7 @@ class Controlador {
         try {
             const persona = req.body;
             const PersonaGuardada = await this.servicio.setPersona(persona);
-            res.json(productoGuardado);
+            res.json(PersonaGuardada);
         } catch (error) {
          res.json({ error: error.message });
         }
@@ -34,7 +34,7 @@ class Controlador {
 
      eliminarPersona = async(req,res)=>{
         const { id } = req.params;
-        const persona = await this.servicio.eliminarPersona(id);
-        res.json(persona);
+        const PersonaEliminada = await this.servicio.eliminarPersona(id);
+        res.json(PersonaEliminada);
      }
 }
