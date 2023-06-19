@@ -3,7 +3,8 @@ import Controlador from '../controlador/productos.js'
 
 class Router {
     constructor() {
-        this.router = express.Router()
+        let  sarasa = "";
+        //this.router = express.Router()
         this.controlador = new Controlador()
     }
 
