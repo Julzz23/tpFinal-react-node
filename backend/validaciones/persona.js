@@ -12,4 +12,5 @@ const validar = (persona) => {
     celular: Joi.number().required(),
     dni: Joi.String().min(6).max(10).required()
   });
+  
 };
