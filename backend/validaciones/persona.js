@@ -4,6 +4,7 @@ const validar = (persona) => {
   const PersonaSchema = Joi.object({
     nombre: Joi.String().required(),
     apellido: Joi.String().required(),
+    pass: Joi.String().required(),
     edad: Joi.number().min(1).max(99).required(),
     email: Joi.string().email({
       minDomainSegments: 2,
