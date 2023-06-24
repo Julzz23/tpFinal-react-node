@@ -8,7 +8,7 @@ const get = _=>({
     edad: faker.number.int({min: 18 , max:99}),
     email: "prueba@hotmail.com",
     celular: faker.phone.number(),
-    dni: Math.floor((Math.random() * (0 - 99999999 + 1))),
+    dni: Math.abs(Math.floor((Math.random() * (0 - 99999999 + 1)))),
     direccion: faker.location.streetAddress(),
 
 

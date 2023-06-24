@@ -27,8 +27,9 @@ class Controlador {
      };
 
      actualizarPersona = async(req,res)=>{
+        const {id} = req.params
         const persona = req.body;
-        const PersonaActualizada = await this.servicio.actualizarPersona(persona);
+        const PersonaActualizada = await this.servicio.actualizarPersona(dni,persona);
         res.json(PersonaActualizada);
      }
 

@@ -1,5 +1,8 @@
 import generador from "./generadores/personas.js"
 import { expect } from "chai"
+import Router from "../router/personas.js"
+
+
 
 describe('Deberia crear una nueva persona aleatoria',() =>{
 
@@ -9,8 +12,9 @@ describe('Deberia crear una nueva persona aleatoria',() =>{
 
         console.log(persona)
 
-        expect(persona).to.include('nombre','apellido','pass','edad','email','celular','dni','direccion')
+        expect(persona).to.include.keys('nombre','apellido','pass','edad','email','celular','dni','direccion')
 
+        
     })
 
 })
