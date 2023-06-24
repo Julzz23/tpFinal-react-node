@@ -11,7 +11,7 @@ class Router {
         this.router.get('/:id?', this.controlador.getPersona)
         this.router.post('/', this.controlador.setPersona)
         this.router.put('/:id', this.controlador.actualizarPersona)
-        this.router.delete('/:id', this.controlador.borrarPersona)
+        this.router.delete('/:id', this.controlador.eliminarPersona)
 
         return this.router
     }    

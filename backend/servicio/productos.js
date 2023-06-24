@@ -1,4 +1,4 @@
-import Modelo from "./model/productosDB.js";
+import Modelo from "../model/productosDB.js";
 import { validar } from "../validaciones/productos.js";
 
 class Servicio {
@@ -40,3 +40,5 @@ class Servicio {
     return productoEliminado;
   };
 }
+
+export default Servicio

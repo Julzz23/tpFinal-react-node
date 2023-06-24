@@ -1,7 +1,7 @@
 import Joi from "joi";
 
-const validar = (persona) => {
-  const PersonaSchema = Joi.object({
+export const validar = (persona) => {
+  const personaSchema = Joi.object({
     nombre: Joi.String().required(),
     apellido: Joi.String().required(),
     pass: Joi.String().required(),
@@ -16,7 +16,11 @@ const validar = (persona) => {
 
   });
 
+  const { error } = personaSchema.validate(persona);
+  if(error) {
+      return { result: false, error }     // validación falló
+  }
+
+  return { result: true } 
 
 };
-
-export default validar

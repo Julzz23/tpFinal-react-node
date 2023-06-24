@@ -1,7 +1,7 @@
 import { ObjectId } from "mongodb";
-import CnxMongoDB from "../DBMongo.js";
+import CnxMongoDB from "../model/DBMongo.js";
 
-class ModelPersonaDB {
+class ModelProductoDB {
   constructor() {}
 
   getProducto = async (id) => {
@@ -50,3 +50,5 @@ class ModelPersonaDB {
   };
   
 }
+
+export default ModelProductoDB

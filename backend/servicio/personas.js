@@ -1,4 +1,4 @@
-import Modelo from "./model/personasDB.js"
+import Modelo from "../model/personasDB.js"
 import { validar } from "../validaciones/persona.js" 
 
 class Servicio {
@@ -45,3 +45,5 @@ class Servicio {
 
     }
 }
+
+export default Servicio

@@ -1,4 +1,4 @@
-import Servicio from "./servicio/personas.js";
+import Servicio from "../servicio/personas.js";
 
 class Controlador {
     constructor() {
@@ -38,3 +38,5 @@ class Controlador {
         res.json(PersonaEliminada);
      }
 }
+
+export default Controlador

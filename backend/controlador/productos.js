@@ -1,4 +1,4 @@
-import Servicio from "./servicio/productos.js";
+import Servicio from "../servicio/productos.js";
 
 class Controlador {
   constructor() {
@@ -26,8 +26,9 @@ class Controlador {
   };
 
   actualizarProducto = async (req, res) => {
+    const {dni} = req.params.dni;
     const producto = req.body;
-    const ProductoGuardado = await this.servicio.actualizarProducto(producto);
+    const ProductoGuardado = await this.servicio.actualizarProducto(dni,producto);
     res.json(ProductoGuardado);
   };
   
@@ -37,3 +38,5 @@ class Controlador {
     res.json(ProductoEliminado);
   };
 }
+
+export default Controlador

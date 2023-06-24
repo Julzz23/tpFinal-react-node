@@ -11,7 +11,7 @@ class Router {
         this.router.get('/:id?', this.controlador.getProducto)
         this.router.post('/', this.controlador.setProducto)
         this.router.put('/:id', this.controlador.actualizarProducto)
-        this.router.delete('/:id', this.controlador.borrarProducto)
+        this.router.delete('/:id', this.controlador.eliminarProducto)
         return this.router
 
     }    
