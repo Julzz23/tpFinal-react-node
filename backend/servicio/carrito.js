@@ -1,28 +1,46 @@
-import Modelo from "../model/carritoDB.js"
+import ModeloCarrito from "../model/carritoDB.js"
 
-class Servicio {
+class ServicioCarrito {
 
     constructor(){
-        this.model = new Modelo();
+        this.model = new ModeloCarrito();
     }
 
+    calcularTotal = async(id)=>{
+        const productos = this.getProductos(id)
+        for (var i = 0; i < productos.length; i++) {
+            // Sumar el precio de cada producto al total
+             total += productos[i].precio;
+          }
+          return total
+    }
 
-    setProducto = async (producto)=>{
+    getProductos = async(id)=>{
+        const productos = await this.model.getProductos(id);
+        return productos
+    }
 
-        const mensajeError = 'El producto no se ingreso al stock'
-       
-        // falta crear las validaciones
-        if(hayStock(producto)){
+    getCarrito = async (id)=>{
+        const carrito = await this.model.getCarrito(id);
+        return carrito
+    }
 
-            const productoGuardado = await this.model.setProducto(producto);
-            return productoGuardado
+    crearCarrito = async (id)=>{
+        const carrito = await this.model.setCarrito(id);
+        return carrito
+    }
 
-        }else{
-            return mensajeError
-        }
-
+    agregarProducto = async(producto)=>{
+        const productoAgregado = await this.model.agregarProducto(producto)
+        return producto;
 
     }
+
+    eliminarProducto = async(producto)=>{
+        const productoAgregado = await this.model.eliminarProducto(producto)
+        return producto;
+    }
+
 }
 
-export default Servicio
+export default ServicioCarrito

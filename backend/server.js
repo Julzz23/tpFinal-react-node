@@ -3,6 +3,7 @@ import config from './config.js'
 import CnxMongoDB from './model/DBMongo.js'
 import RouterProductos from '../backend/router/productos.js'
 import RouterPersonas from '../backend/router/personas.js'
+import RouterCarrito from '../backend/router/carrito.js'
 
 const app = express()
 app.use(express.json())
@@ -14,6 +15,8 @@ app.use(express.urlencoded({ extended: true }))
 
 app.use('/productos', new RouterProductos().start())
 app.use('/personas', new RouterPersonas().start())
+app.use('/carrito', new RouterCarrito().start())
+
 
 //-------------------------------------------
 //      Listen del servidor express
