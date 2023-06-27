@@ -1,6 +1,6 @@
 import { ObjectId } from "mongodb";
 import CnxMongoDB from "../model/DBMongo.js";
-import ModelCarritoDB from "../model/carritoDB";
+import ModelCarritoDB from "../model/carritoDB.js";
 
 class ModelPersonaDB {
   constructor() {}

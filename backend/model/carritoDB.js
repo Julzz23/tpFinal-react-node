@@ -1,4 +1,4 @@
-import CnxMongoDB from "./DBMongo";
+import CnxMongoDB from "../model/DBMongo.js";
 
 class ModelCarritoDB {
    
@@ -6,8 +6,9 @@ class ModelCarritoDB {
         this.identificador = dni;
     };
   
-    setCarrito = async (carrito) => {
+    crearCarrito = async (id) => {
         if (!CnxMongoDB.connectOk) return {};
+        const carrito = new ModelCarritoDB(id)
         await CnxMongoDB.db.collection("carrito").insertOne(carrito);
         return carrito;
       };
@@ -49,4 +50,5 @@ class ModelCarritoDB {
     }
 
     }
+     
 export default ModelCarritoDB

@@ -25,9 +25,9 @@ class CnxMongoDB {
         }
     }
 
-    static desconectar = () => {
+    static desconectar = async () => {
         if(!this.connectOk) return
-        this.client.close()
+        await this.client.close()
         this.connectOk = false
     }
 }

@@ -11,6 +11,7 @@ describe('Deberia crear una nueva persona aleatoria',() =>{
         const persona = generador.get()
 
         console.log(persona)
+        Router.
 
         expect(persona).to.include.keys('nombre','apellido','pass','edad','email','celular','dni','direccion')
 

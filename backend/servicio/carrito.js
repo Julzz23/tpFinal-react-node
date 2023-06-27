@@ -26,7 +26,7 @@ class ServicioCarrito {
     }
 
     crearCarrito = async (id)=>{
-        const carrito = await this.model.setCarrito(id);
+        const carrito = await this.model.crearCarrito(id);
         return carrito
     }
 
