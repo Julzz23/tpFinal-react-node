@@ -4,7 +4,7 @@ import Router from "../router/personas.js"
 
 
 
-describe('Deberia crear una nueva persona aleatoria',() =>{
+describe('Deberia encontrar persona',() =>{
 
     it('Deberia crear una persona completa',()=>{
 

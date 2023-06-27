@@ -8,9 +8,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
     "watch": "nodemon index.js",
-    "test-generador-persona": "mocha test/personas.test.js --timeout 10000"
-    
-
+    "test-generador-persona": "mocha test/personas.test.js --timeout 10000",
+    "test-guardar-persona": "mocha test/api.ingresoPersona.test.js --timeout 100000"
   },
   "engines": {
     "node": ">=14"
