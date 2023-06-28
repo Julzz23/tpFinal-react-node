@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="styles/estilos.css">
+</head>
+<body>
+    <h1>Ingrese a su cuenta</h1>
+    <br>
+    <form action="/clientes/login" method="post">
+        Usuario: <input name="usuario" type="text">
+        Password: <input name="password" type="text">
+        <button>Enviar</button>
+    </form>
+    <br>
+    <h2><%= mensaje %></h2>
+    <br>
+    <a href="/clientes/crearCuenta"><h2>Crear cuenta</h2></a>
+    <br>
+    <a href="/"><h2>Home</h2></a>
+</body>
+</html>

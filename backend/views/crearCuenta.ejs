@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Cuenta</title>
+    <link rel="stylesheet" href="styles/estilos.css">
+</head>
+<body>
+    <h1>Crear cuenta de Dafejuka</h1>
+    <br>
+    <form action="/clientes/crearCuenta" method="post">
+        Nombre:<input name="nombre" type="text"><br><br>
+        Dni:<input name="dni" type="number"><br><br>
+        Email:<input name="email" type="email"><br><br>
+        Telefono:<input name="telefono" type="tel"><br><br>
+        Direccion:<input name="direccion" type="text"><br><br>
+        Usuario:<input name="usuario" type="text"><br><br>
+        Password:<input name="password" type="text"><br><br>
+        <button>Enviar</button>
+    </form>
+    <br>
+    <h2><%= mensaje %></h2>
+    <br>
+    <a href="/clientes/login"><h2>Login</h2></a>
+    <br>
+    <a href="/"><h2>Home</h2></a>
+</body>
+</html>

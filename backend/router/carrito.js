@@ -13,6 +13,7 @@ class Router {
         this.router.get('/:idCarrito/calcularTotal', this.controlador.calcularTotal)
         this.router.get('/:idCarrito', this.controlador.getCarrito)
         this.router.get('/:idCarrito/productos', this.controlador.getProductos)
+        
         //rutas POST
         this.router.post('/:idCarrito', this.controlador.crearCarrito)
         this.router.post('/:producto', this.controlador.agregarProducto)

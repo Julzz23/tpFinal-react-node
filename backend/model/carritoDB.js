@@ -18,7 +18,7 @@ class ModelCarritoDB {
         const productos = []
         if (!CnxMongoDB.connectOk) return {};
 
-        await CnxMongoDB.db
+      await CnxMongoDB.db
       .collection("carrito")
       .updateOne({ identificador: new ObjectId(dni) }, { $set: productos });
     }

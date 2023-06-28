@@ -7,7 +7,6 @@ const get = _=>({
     marca: faker.animal(),
     modelo: faker.color(),
     precio: faker.commerce.price(),
-    expiracion : faker.date.between({from:'2023-07-01', to:'2026-07-01'}),
 
 })
 
