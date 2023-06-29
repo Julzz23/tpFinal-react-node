@@ -16,13 +16,13 @@ class Servicio {
     }
   };
 
-  getPersona = async (id) => {
+  getProducto = async (id) => {
     const producto = await this.model.getProducto(id);
 
     return producto;
   };
 
-  actualizarPersona = async (id, producto) => {
+  actualizarProducto = async (id, producto) => {
     const validacion = validar(producto);
     if (validacion.result) {
       const productoActualizado = await this.model.actualizarProducto(

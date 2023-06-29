@@ -8,7 +8,8 @@ class ServicioCarrito {
 
     calcularTotal = async(id)=>{
         const productos = this.getProductos(id)
-        for (var i = 0; i < productos.length; i++) {
+        let total = 0
+        for (let i = 0; i < productos.length; i++) {
             // Sumar el precio de cada producto al total
              total += productos[i].precio;
           }

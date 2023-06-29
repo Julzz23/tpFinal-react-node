@@ -10,7 +10,7 @@ class Controlador {
       const id = req.params;
       const calcularTotal = await this.servicio.calcularTotal(id);
       res.json(calcularTotal);
-    } catch {
+    } catch(error) {
       res.json({ error: error.message });
     }
   };
@@ -20,18 +20,17 @@ class Controlador {
       const id = req.params;
       const carrito = await this.servicio.getCarrito(id)
       res.json(carrito);
-    } catch {
+    } catch(error) {
       res.json({ error: error.message });
     }
   };
 
   getProductos = async (req, res) => {
     try {
-      const productos = []
       const id = req.params;
-      productos = await this.servicio.getProductos(id)
+      const productos = await this.servicio.getProductos(id)
       res.json(productos);
-    } catch {
+    } catch(error) {
       res.json({ error: error.message });
     }
   };
@@ -61,7 +60,7 @@ class Controlador {
       const id = req.params;
       const carritoNuevo = await this.servicio.vaciarCarrito(id);
       res.json(carritoNuevo);
-    } catch {
+    } catch(error) {
       res.json({ error: error.message });
     }
   };

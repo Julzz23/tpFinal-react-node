@@ -27,6 +27,7 @@ class Controlador {
      };
 
      actualizarPersona = async(req,res)=>{
+        //TODO: Acá se toma el id y el objeto persona, pero para actualizar se pasa el dni y el objeto persona?
         const {id} = req.params
         const persona = req.body;
         const PersonaActualizada = await this.servicio.actualizarPersona(dni,persona);

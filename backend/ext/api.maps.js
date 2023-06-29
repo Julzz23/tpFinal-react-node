@@ -1,6 +1,6 @@
 function initMap() {
   let origin = "Rivadavia 6123, Buenos Aires, Argentina";
-  // ESTO ES LO QUE HAY QUE CAMBIAR:
+  //TODO: VER CÓMO RECIBIR LA DIRECCION POR PARAMETRO:
   let destination = "Nazca 2123, Buenos Aires, Argentina";
   let directionsService = new google.maps.DirectionsService();
   let directionsRenderer = new google.maps.DirectionsRenderer();

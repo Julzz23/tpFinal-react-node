@@ -4,6 +4,7 @@ import RouterProductos from '../backend/router/productos.js'
 import RouterClientes from './router/clientes.js'
 import RouterPersonas from '../backend/router/personas.js'
 import RouterCarrito from '../backend/router/carrito.js'
+import RouterMapa from '../backend/router/map.js'
 import RouterPagos from '../backend/router/pagos.js'
 import morgan from 'morgan'
 import path from 'path'
@@ -30,7 +31,9 @@ class Server {
         this.app.set('view engine', 'ejs') //para usar render, formato ejs y que lo lea de la vista views
         this.app.use(morgan('dev')) //para ver las rutas por consola
         this.app.use(express.json())
-        this.app.use(express.static('public'))
+        //this.app.use(express.static('public'))
+        this.app.use(express.static(path.join(__dirname, 'public')));
+        this.app.use(express.static(path.join(__dirname, 'ext')));
         this.app.use(express.urlencoded({extended:true}))
         
         
@@ -42,6 +45,7 @@ class Server {
         this.app.use('/personas', new RouterPersonas().start())
         this.app.use('/clientes', new RouterClientes().start())
         this.app.use('/carrito', new RouterCarrito().start())
+        this.app.use('/map', new RouterMapa().start())
         // this.app.use('/pagos', new RouterPagos().start())
         
         //VISTA FORMULARIO
@@ -60,6 +64,8 @@ class Server {
         const PORT = this.port
         this.server = this.app.listen(PORT, () => console.log(`Servidor http express escuchando en http://127.0.0.1:${PORT}`))
         this.server.on('error', error => console.log(`Error en servidor: ${error.message}`))
+
+        
 
         return this.app
     }

@@ -26,7 +26,7 @@ class Controlador {
   };
 
   actualizarProducto = async (req, res) => {
-    const {id} = req.params.id
+    const {id} = req.params
     const producto = req.body;
     const ProductoGuardado = await this.servicio.actualizarProducto(id,producto);
     res.json(ProductoGuardado);
