@@ -1,8 +1,11 @@
 import { ObjectId } from "mongodb"
 import CnxMongoDB from "../model/DBMongo.js"
+import ModelCarritoDB from "./carritoDB.js"
 
 class ModelMongoDB {
     constructor() {
+
+        this.carrito = new ModelCarritoDB()
     }
 
     obtenerClientes = async id => {
@@ -63,3 +66,6 @@ class ModelMongoDB {
 }
 
 export default ModelMongoDB
+
+
+

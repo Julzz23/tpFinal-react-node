@@ -14,6 +14,8 @@ class Router {
         this.router.post('/crearCuenta', this.controlador.guardarCliente)
         this.router.put('/actualizar/:id', this.controlador.actualizarCliente)
         this.router.delete('/borrar/:id', this.controlador.borrarCliente)
+        this.router.post('/agregarAlCarrito/', this.controlador.agregarAlCarrito)
+
         return this.router
     }    
 }

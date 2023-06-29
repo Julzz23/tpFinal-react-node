@@ -63,6 +63,14 @@ class Controlador {
         const clienteBorrado = await this.servicio.borrarCliente(id)
         res.json(clienteBorrado)
     }
+
+    agregarAlCarrito = async(req,res)=>{
+
+        const{idPersona,idProducto} = req.query
+        const agregarAlCarrito = await this.servicio.agregarAlCarrito(idPersona,idProducto)
+        res.json(agregarAlCarrito)
+
+    }
 }
 
 export default Controlador

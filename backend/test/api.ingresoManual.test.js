@@ -4,15 +4,15 @@ import { describe } from "mocha";
 import generador from './generadores/clientes.js'
 
 
-
+var cliente 
 const request = supertest('http://127.0.0.1:8080')
 
 describe('prueba de ingreso de persona',()=>{
 
     it('tendria que poder crear correctamente la persona', async ()=>{
 
-        const cliente = generador.get()
-        console.log('****** CLIENTE CREADA ************')
+        cliente = generador.get()
+        console.log('****** CLIENTE CREADO ************')
         console.log(cliente)
 
     })

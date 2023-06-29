@@ -4,13 +4,13 @@
   "description": "Backend para proyecto final",
   "main": "index.js",
   "type": "module",
-  
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
     "watch": "nodemon index.js",
     "test-guardar-cliente": "mocha test/api.ingresoManual.test.js --timeout 100000",
-    "test-buscar-cliente": "mocha test/api.buscarProducto.test.js --timeout 100000"
+    "test-buscar-producto": "mocha test/api.buscarProducto.test.js --timeout 100000",
+    "test-agregar-al-carrito": "mocha test/api.agregarAlCarrito.test.js --timeout 100000"
   },
   "engines": {
     "node": ">=14"
@@ -35,13 +35,13 @@
     "glitch": "^0.1.0",
     "i": "^0.3.7",
     "joi": "^17.9.2",
-    "mercadopago": "^1.5.16",
+    "mercadopago": "^0.0.6",
     "mocha": "^10.2.0",
     "mongodb": "^5.6.0",
     "morgan": "^1.10.0",
+    "nodemailer": "^6.9.3",
     "path": "^0.12.7",
     "supertest": "^6.3.3",
-    "nodemailer": "^6.9.3",
     "url": "^0.11.1"
   }
 }

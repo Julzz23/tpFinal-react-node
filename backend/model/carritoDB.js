@@ -2,13 +2,13 @@ import CnxMongoDB from "../model/DBMongo.js";
 
 class ModelCarritoDB {
    
-    constructor(dni) {
-        this.identificador = dni;
+    constructor() {
+       
     };
   
-    crearCarrito = async (id) => {
+    crearCarrito = async () => {
         if (!CnxMongoDB.connectOk) return {};
-        const carrito = new ModelCarritoDB(id)
+        const carrito = new ModelCarritoDB()
         await CnxMongoDB.db.collection("carrito").insertOne(carrito);
         return carrito;
       };
@@ -20,7 +20,7 @@ class ModelCarritoDB {
 
       await CnxMongoDB.db
       .collection("carrito")
-      .updateOne({ identificador: new ObjectId(dni) }, { $set: productos });
+      .updateOne({ _id: new ObjectId(dni) }, { $set: productos });
     }
   
     agregarProducto = async(producto)=>{

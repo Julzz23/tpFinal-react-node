@@ -3,7 +3,10 @@ import CnxMongoDB from "../model/DBMongo.js";
 import ModelCarritoDB from "../model/carritoDB.js";
 
 class ModelPersonaDB {
-  constructor() {}
+  constructor() {
+
+    this.carrito = new ModelCarritoDB()
+  }
 
   getPersona = async (dni) => {
     if (!CnxMongoDB.connectOk) return dni ? {} : [];
@@ -23,12 +26,11 @@ class ModelPersonaDB {
 
   setPersona = async (persona) => {
     //creando carrito para persona
-    const carrito = new ModelCarritoDB(persona.dni)
     if (!CnxMongoDB.connectOk) return {};
 
     //creando persona y carrito vacio
     await CnxMongoDB.db.collection("personas").insertOne(persona);
-    await CnxMongoDB.db.collection("carrito").insertOne(carrito);
+
     return persona;
   };
 

@@ -1,4 +1,5 @@
 import Model from "../model/clientesDB.js"
+import ModelProductos from '../model/productosDB.js'
 import { validarIngreso } from "../validaciones/clienteAIngresar.js" 
 import { validarCliente } from "../validaciones/clienteAGuardar.js" 
 import email from "../ext/api.email.js"
@@ -6,6 +7,7 @@ import email from "../ext/api.email.js"
 class Servicio {
     constructor() {
         this.model = new Model()
+        this.modelProductos = new ModelProductos()
     }
 
     obtenerClientes = async id => {
@@ -53,6 +55,18 @@ class Servicio {
     borrarCliente = async id => {
         const clienteBorrado = await this.model.borrarCliente(id)
         return clienteBorrado
+    }
+
+    agregarAlCarrito = async(idPersona,idProducto)=>{
+
+        const cliente = await this.obtenerClientes(idPersona)
+        const producto = await this.modelProductos.getProducto(idProducto)
+
+        cliente.productos.push(producto)
+
+        clienteActualizado = await this.model.actualizarCliente(cliente.id, cliente)
+        
+        return compraCliente
     }
 }
 
