@@ -58,15 +58,23 @@ class Servicio {
     }
 
     agregarAlCarrito = async(idPersona,idProducto)=>{
-
-        const cliente = await this.obtenerClientes(idPersona)
-        const producto = await this.modelProductos.getProducto(idProducto)
-
-        cliente.productos.push(producto)
-
-        clienteActualizado = await this.model.actualizarCliente(cliente.id, cliente)
+        try{
+            const cliente = await this.obtenerClientes(idPersona)
+            const producto = await this.modelProductos.getProducto(idProducto)
+            if(producto !=null){
+                cliente.productos.push(producto)
+                await this.modelProductos.eliminarProducto(producto)
+                clienteActualizado = await this.model.actualizarCliente(cliente.id, cliente)
+    
+            }
+            
+        }catch{
+            const {error} = error.message
+            return error.message
+        }
+       
         
-        return compraCliente
+        return clienteActualizado
     }
 }
 
