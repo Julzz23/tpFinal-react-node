@@ -18,8 +18,9 @@ describe('prueba de ingreso de persona',()=>{
     })
        
     it('deberia poder ingresar correctamente la persona a la base de datos', async ()=>{
-            
-        const response = await ( request.post('/clientes')).send(cliente)
+        
+        //console.log(cliente)
+        const response = await (request.post('/clientes')).send({cliente})
         expect(response.status)
     })
 })

@@ -22,8 +22,8 @@ describe('prueba de ingreso de persona',()=>{
         const clienteID = cliente._id
         const productoID = '123456789'
         const queryString = '?id_persona=' + clienteID + '&id_producto=' + productoID;
-        
-        const response = await ( request.post('/clientes/agregarAlCarrito/'+ queryString)).send()
+
+        const response = await ( request.post('/clientes/agregarAlCarrito/'+ queryString)).send() // deberia estar en el send? clienteID,productoID)
         expect(response.status)
     })
 })
