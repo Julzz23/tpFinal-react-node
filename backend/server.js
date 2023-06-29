@@ -1,6 +1,7 @@
 import express from 'express'
 import CnxMongoDB from './model/DBMongo.js'
 import RouterProductos from '../backend/router/productos.js'
+import RouterClientes from './router/clientes.js'
 import RouterPersonas from '../backend/router/personas.js'
 import RouterCarrito from '../backend/router/carrito.js'
 import RouterPagos from '../backend/router/pagos.js'
@@ -25,22 +26,24 @@ class Server {
         const __filename = fileURLToPath(import.meta.url) 
         const __dirname = path.dirname(__filename) 
 
-        this.app.use(express.json())
-        this.app.use(express.urlencoded({extended:true}))
         this.app.set('views', path.join(__dirname, 'views')) //path.Join para unir las direccion del directorio con views
         this.app.set('view engine', 'ejs') //para usar render, formato ejs y que lo lea de la vista views
-        
         this.app.use(morgan('dev')) //para ver las rutas por consola
+        this.app.use(express.json())
+        this.app.use(express.static('public'))
+        this.app.use(express.urlencoded({extended:true}))
+        
         
         // ------------------------------------------
         //          API REST Ful
         // ------------------------------------------
 
         this.app.use('/productos', new RouterProductos().start())
-        this.app.use('/clientes', new RouterPersonas().start())
+        this.app.use('/personas', new RouterPersonas().start())
+        this.app.use('/clientes', new RouterClientes().start())
         this.app.use('/carrito', new RouterCarrito().start())
         // this.app.use('/pagos', new RouterPagos().start())
-
+        
         //VISTA FORMULARIO
         this.app.get('/',(req,res)=>res.render('index',{mensaje:''}))
         this.app.use((req,res)=>{res.status(404).send("no se encontro la pagina")})

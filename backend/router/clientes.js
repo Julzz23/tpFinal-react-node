@@ -1,5 +1,5 @@
 import express from 'express'
-import Controlador from '../controller/clientes.js'
+import Controlador from '../controlador/clientes.js'
 
 class Router {
     constructor() {
